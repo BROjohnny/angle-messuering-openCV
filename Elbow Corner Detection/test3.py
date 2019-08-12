@@ -1,5 +1,7 @@
 import numpy as np
 import cv2
+import math
+
 p=1000
 a=0
 t=0
@@ -37,11 +39,27 @@ for corner in corners:
             a=x
             b=y   
     
-    
+def line1m(p,q,s,t,a,b):
+    m1=(q - t)/(p - s)
+    m2=(b - t)/(a - s)
+    print(m1,m2)
+    o = (m1 -m2)/(1 + (m1*m2))
+    print (o)
+    print(math.tan(o))
+    return o
+
+def checkconer(o):
+    if(o == math.tan(math.pi/2)):
+        print ("perfect shot. \n")
+    elif(o < math.tan(math.pi/2)):
+        print ("Try Again! \nYour elbow angel is greater than 90 degrees.")
+    elif(o > math.tan(math.pi/2)):
+        print ("Try Again! \nYour elbow angel is less than 90 degrees.")
 print(p,q) #wam patte tiynwa point eka
 print(s,t) #kapena point eka
 print(a,b) #dakuna tiynwa point eka
-
+o = line1m(p,q,s,t,a,b)
+checkconer(o)
 #cv2.circle(img,(137,156),3,(0,0,255),-1)
 #cv2.circle(img,(247,143),3,(0,0,255),-1)
 #cv2.circle(img,(167,174),3,(0,0,255),-1)
