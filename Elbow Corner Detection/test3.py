@@ -5,7 +5,7 @@ import math
 p=1000
 a=0
 t=0
-img = cv2.imread('image 3.jpg')
+img = cv2.imread('image 1.jpg')
 (width,height)=img.shape[:2]
 img=cv2.resize(img,(int(height/10),int(width/10)))
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -58,6 +58,8 @@ def checkconer(o):
 print(p,q) #wam patte tiynwa point eka
 print(s,t) #kapena point eka
 print(a,b) #dakuna tiynwa point eka
+cv2.line(img,(p,q),(s,t),(50,249,222),2)
+cv2.line(img,(a,b),(s,t),(50,249,222),2)
 o = line1m(p,q,s,t,a,b)
 checkconer(o)
 #cv2.circle(img,(137,156),3,(0,0,255),-1)
